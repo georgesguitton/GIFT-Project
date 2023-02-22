@@ -10,5 +10,6 @@ services:
       POSTGRES_DB: GIFT-Project
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./pg-script:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"

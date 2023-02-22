@@ -38,5 +38,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
+data/
 node_modules/
-**/output.css
