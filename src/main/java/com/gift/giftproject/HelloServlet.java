@@ -6,6 +6,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"tutor_role"}))
 public class HelloServlet extends HttpServlet {
     private String message;
 
