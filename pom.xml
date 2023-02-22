@@ -14,22 +14,30 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
-        <junit.version>5.9.1</junit.version>
+        <junit.version>5.9.2</junit.version>
         <jakartaee.version>9.1.0</jakartaee.version>
-        <lombok.version>1.18.22</lombok.version>
+        <eclipse-persistance-jpa.version>3.0.3</eclipse-persistance-jpa.version>
+        <lombok.version>1.18.26</lombok.version>
+        <postgresql.version>42.5.4</postgresql.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-web-api</artifactId>
-            <version>9.1.0</version>
+            <version>${jakartaee.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>3.0.2</version>
+            <version>${eclipse-persistance-jpa.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
