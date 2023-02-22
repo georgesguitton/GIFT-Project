@@ -12,8 +12,8 @@
     <form class="mt-8 space-y-6" method="POST" action="j_security_check" accept-charset="latin-1">
         <div class="-space-y-px rounded-md shadow-sm">
             <div>
-                <label for="username" class="sr-only">Username</label>
-                <input id="username" type="text" name="j_username" placeholder="Username" required
+                <label for="username" class="sr-only">Email</label>
+                <input id="username" type="email" name="j_username" placeholder="Email" required
                        class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
             </div>
             <div>

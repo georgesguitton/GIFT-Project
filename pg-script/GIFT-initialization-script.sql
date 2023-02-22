@@ -8,7 +8,8 @@ CREATE TABLE Tutor(
         email     Varchar (50) NOT NULL ,
         password  Varchar (50) NOT NULL ,
         firstname Varchar (50) NOT NULL ,
-        lastname  Varchar (50) NOT NULL
+        lastname  Varchar (50) NOT NULL,
+        role     Varchar  (50) DEFAULT 'tutor_role',
 	,CONSTRAINT Tutor_PK PRIMARY KEY (id_tutor)
 );
 

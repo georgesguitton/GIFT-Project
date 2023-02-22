@@ -23,6 +23,11 @@ public class TutorEntity {
     @Basic
     @Column(name = "lastname", nullable = false, length = 50)
     private String lastname;
+
+    @Basic
+    @Column(name = "role", nullable = true, length = 50)
+    private String role;
+
     @OneToMany(mappedBy = "idTutor")
     private Collection<StudentEntity> studentsByIdTutor;
 
@@ -64,6 +69,14 @@ public class TutorEntity {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
