@@ -23,7 +23,7 @@ public class TutorEntity {
     @Basic
     @Column(name = "lastname", nullable = false, length = 50)
     private String lastname;
-    @OneToMany(mappedBy = "tutorByIdTutor")
+    @OneToMany(mappedBy = "idTutor")
     private Collection<StudentEntity> studentsByIdTutor;
 
     public int getIdTutor() {

@@ -6,8 +6,8 @@ import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue
 
 @FormAuthenticationMechanismDefinition(
         loginToContinue = @LoginToContinue(
-                loginPage = "/login.jsp",
-                errorPage = "/login-failed.jsp"))
+                loginPage = "/WEB-INF/login.jsp",
+                errorPage = "/WEB-INF/login-failed.jsp"))
 @ApplicationScoped
 public class AppConfig {
 }
