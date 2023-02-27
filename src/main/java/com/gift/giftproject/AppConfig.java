@@ -1,10 +1,12 @@
 package com.gift.giftproject;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.security.enterprise.authentication.mechanism.http.FormAuthenticationMechanismDefinition;
 import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue;
 import jakarta.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
-import jakarta.security.enterprise.identitystore.IdentityStore;
 
 @FormAuthenticationMechanismDefinition(
         loginToContinue = @LoginToContinue(
@@ -16,4 +18,7 @@ import jakarta.security.enterprise.identitystore.IdentityStore;
 )
 @ApplicationScoped
 public class AppConfig {
+    @Produces
+    @PersistenceContext(unitName = "default")
+    private EntityManager entityManager;
 }

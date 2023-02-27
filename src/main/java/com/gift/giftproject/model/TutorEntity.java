@@ -1,11 +1,13 @@
 package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
 @Entity
 @Table(name = "tutor", schema = "public", catalog = "GIFT-Project")
+@Builder
 public class TutorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

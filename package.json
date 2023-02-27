@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "watch-css": "npx tailwindcss -i ./src/main/webapp/WEB-INF/input.css -o src/main/webapp/WEB-INF/output.css --watch"
+    "watch-css": "npx tailwindcss -i ./src/main/webapp/WEB-INF/input.css -o src/main/webapp/output.css --watch"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.7"

@@ -1,21 +1,21 @@
-package com.gift.giftproject;
+package com.gift.giftproject.controller;
 
 import java.io.*;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-import static jakarta.servlet.annotation.ServletSecurity.EmptyRoleSemantic.DENY;
-
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
 public class HelloServlet extends HttpServlet {
     private String message;
 
+    @Override
     public void init() {
         message = "Hello World!";
     }
 
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
@@ -26,6 +26,7 @@ public class HelloServlet extends HttpServlet {
         out.println("</body></html>");
     }
 
+    @Override
     public void destroy() {
     }
 }

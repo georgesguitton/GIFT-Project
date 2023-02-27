@@ -6,7 +6,7 @@
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
-            <include-prelude>css-lib.jsp</include-prelude>
+            <include-prelude>/WEB-INF/lib/css-lib.jsp</include-prelude>
         </jsp-property-group>
     </jsp-config>
 </web-app>

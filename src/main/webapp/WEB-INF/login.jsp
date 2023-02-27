@@ -2,7 +2,7 @@
 <!-- source: https://tailwindui.com/components/application-ui/forms/sign-in-forms -->
 <html lang="en">
 <head>
-    <title>Login Page</title>
+    <title>Login to GIFT</title>
 </head>
 <body class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 <main class="w-full max-w-md space-y-8">
