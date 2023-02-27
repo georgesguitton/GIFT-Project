@@ -1,7 +1,7 @@
 package com.gift.giftproject.controller;
 
 import com.gift.giftproject.controller.command.CreateTutorEntityCommand;
-import com.gift.giftproject.controller.service.SignUpServiceBean;
+import com.gift.giftproject.controller.service.SignUpService;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ import static com.gift.giftproject.RouteViewConstants.SIGN_UP_PAGE;
 
 public class SignUpServlet extends HttpServlet {
     @Inject
-    private SignUpServiceBean signUpServiceBean;
+    private SignUpService signUpServiceBean;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

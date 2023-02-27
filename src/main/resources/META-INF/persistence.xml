@@ -11,7 +11,7 @@
         <class>com.gift.giftproject.model.StudentEntity</class>
         <class>com.gift.giftproject.model.TutorEntity</class>
         <properties>
-            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/GIFT-Project"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/GIFTProject"/>
             <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="eclipselink.jdbc.user" value="admin"/>
             <property name="eclipselink.jdbc.password" value="root"/>

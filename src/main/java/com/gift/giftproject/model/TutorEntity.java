@@ -1,12 +1,16 @@
 package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
 @Entity
-@Table(name = "tutor", schema = "public", catalog = "GIFT-Project")
+@Table(name = "tutor", schema = "public")
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class TutorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +29,10 @@ public class TutorEntity {
     @Basic
     @Column(name = "lastname", nullable = false, length = 50)
     private String lastname;
-
     @Basic
     @Column(name = "role", nullable = true, length = 50)
     private String role;
-
-    @OneToMany(mappedBy = "idTutor")
+    @OneToMany(mappedBy = "tutorByIdTutor")
     private Collection<StudentEntity> studentsByIdTutor;
 
     public int getIdTutor() {
@@ -93,6 +95,7 @@ public class TutorEntity {
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        if (role != null ? !role.equals(that.role) : that.role != null) return false;
 
         return true;
     }
@@ -104,6 +107,7 @@ public class TutorEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
     }
 

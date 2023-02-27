@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: GIFT-Project
+      POSTGRES_DB: GIFTProject
     volumes:
       - ./data:/var/lib/postgresql/data
       - ./pg-script:/docker-entrypoint-initdb.d

@@ -17,6 +17,7 @@
         <junit.version>5.9.2</junit.version>
         <jakartaee.version>9.1.0</jakartaee.version>
         <eclipse-persistance-jpa.version>3.0.3</eclipse-persistance-jpa.version>
+        <jstl.version>1.2</jstl.version>
         <lombok.version>1.18.26</lombok.version>
         <postgresql.version>42.5.4</postgresql.version>
     </properties>
@@ -32,6 +33,11 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>${eclipse-persistance-jpa.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

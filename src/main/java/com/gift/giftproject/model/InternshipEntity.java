@@ -3,9 +3,10 @@ package com.gift.giftproject.model;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
-@Table(name = "internship", schema = "public", catalog = "GIFT-Project")
+@Table(name = "internship", schema = "public")
 public class InternshipEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -35,6 +36,8 @@ public class InternshipEntity {
     @Basic
     @Column(name = "company_tutor", nullable = false, length = 50)
     private String companyTutor;
+    @OneToMany(mappedBy = "internshipByIdInternship")
+    private Collection<StudentEntity> studentsByIdInternship;
 
     public int getIdInternship() {
         return idInternship;
@@ -141,5 +144,13 @@ public class InternshipEntity {
         result = 31 * result + (mission != null ? mission.hashCode() : 0);
         result = 31 * result + (companyTutor != null ? companyTutor.hashCode() : 0);
         return result;
+    }
+
+    public Collection<StudentEntity> getStudentsByIdInternship() {
+        return studentsByIdInternship;
+    }
+
+    public void setStudentsByIdInternship(Collection<StudentEntity> studentsByIdInternship) {
+        this.studentsByIdInternship = studentsByIdInternship;
     }
 }

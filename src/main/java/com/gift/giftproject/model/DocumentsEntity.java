@@ -2,8 +2,10 @@ package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
-@Table(name = "documents", schema = "public", catalog = "GIFT-Project")
+@Table(name = "documents", schema = "public", catalog = "GIFTProject")
 public class DocumentsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -24,6 +26,8 @@ public class DocumentsEntity {
     @Basic
     @Column(name = "is_report_done", nullable = false)
     private boolean isReportDone;
+    @OneToMany(mappedBy = "documentsByIdDocuments")
+    private Collection<StudentEntity> studentsByIdDocuments;
 
     public int getIdDocuments() {
         return idDocuments;
@@ -99,5 +103,13 @@ public class DocumentsEntity {
         result = 31 * result + (isWebPollDone ? 1 : 0);
         result = 31 * result + (isReportDone ? 1 : 0);
         return result;
+    }
+
+    public Collection<StudentEntity> getStudentsByIdDocuments() {
+        return studentsByIdDocuments;
+    }
+
+    public void setStudentsByIdDocuments(Collection<StudentEntity> studentsByIdDocuments) {
+        this.studentsByIdDocuments = studentsByIdDocuments;
     }
 }

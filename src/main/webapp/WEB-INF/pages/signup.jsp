@@ -11,7 +11,7 @@
     </div>
     <form class="mt-8 space-y-6" method="POST" action="signup">
         <div class="space-y-2 rounded-md shadow-sm">
-            <jsp:include page="partials/input-text-group.jsp">
+            <jsp:include page="../partials/input-text-group.jsp">
                 <jsp:param name="labelText" value="First Name"/>
                 <jsp:param name="formId" value="firstname"/>
                 <jsp:param name="formName" value="firstname"/>
@@ -19,21 +19,21 @@
                 <jsp:param name="formRequired" value="true"/>
             </jsp:include>
 
-            <jsp:include page="partials/input-text-group.jsp">
+            <jsp:include page="../partials/input-text-group.jsp">
                 <jsp:param name="labelText" value="Last Name"/>
                 <jsp:param name="formId" value="lastname"/>
                 <jsp:param name="formName" value="lastname"/>
                 <jsp:param name="formPlaceholder" value="Doe"/>
             </jsp:include>
 
-            <jsp:include page="partials/input-email-group.jsp">
+            <jsp:include page="../partials/input-email-group.jsp">
                 <jsp:param name="labelText" value="Email"/>
                 <jsp:param name="formId" value="email"/>
                 <jsp:param name="formName" value="email"/>
                 <jsp:param name="formPlaceholder" value="jonh.doe@gift.fr"/>
             </jsp:include>
 
-            <jsp:include page="partials/input-password-group.jsp">
+            <jsp:include page="../partials/input-password-group.jsp">
                 <jsp:param name="labelText" value="Password"/>
                 <jsp:param name="formId" value="password"/>
                 <jsp:param name="formName" value="password"/>
@@ -41,9 +41,10 @@
             </jsp:include>
         </div>
 
-        <div class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            <button type="submit">Sign Up</button>
-        </div>
+        <button type="submit"
+                class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Submit
+        </button>
     </form>
 </main>
 </body>

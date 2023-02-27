@@ -1,4 +1,4 @@
--- CREATE A DATABASE NAMED "GIFT-Project" AND PASTE THIS SCRIPT INSIDE
+-- CREATE A DATABASE NAMED "GIFTProject" AND PASTE THIS SCRIPT INSIDE
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE SEQUENCE Tutor_seq;
@@ -6,10 +6,10 @@ CREATE SEQUENCE Tutor_seq;
 CREATE TABLE Tutor(
         id_tutor  Int  Default nextval ('Tutor_seq')  NOT NULL ,
         email     Varchar (50) NOT NULL ,
-        password  Varchar (50) NOT NULL ,
+        password  Varchar (200) NOT NULL ,
         firstname Varchar (50) NOT NULL ,
         lastname  Varchar (50) NOT NULL,
-        role     Varchar  (50) DEFAULT 'tutor_role',
+        role     Varchar  (50) DEFAULT 'tutor_role'
 	,CONSTRAINT Tutor_PK PRIMARY KEY (id_tutor)
 );
 

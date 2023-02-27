@@ -2,8 +2,10 @@ package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
-@Table(name = "evaluations", schema = "public", catalog = "GIFT-Project")
+@Table(name = "evaluations", schema = "public")
 public class EvaluationsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -18,6 +20,8 @@ public class EvaluationsEntity {
     @Basic
     @Column(name = "communication_grade", nullable = false, precision = 0)
     private double communicationGrade;
+    @OneToMany(mappedBy = "evaluationsByIdEvaluations")
+    private Collection<StudentEntity> studentsByIdEvaluations;
 
     public int getIdEvaluations() {
         return idEvaluations;
@@ -77,5 +81,13 @@ public class EvaluationsEntity {
         temp = Double.doubleToLongBits(communicationGrade);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    public Collection<StudentEntity> getStudentsByIdEvaluations() {
+        return studentsByIdEvaluations;
+    }
+
+    public void setStudentsByIdEvaluations(Collection<StudentEntity> studentsByIdEvaluations) {
+        this.studentsByIdEvaluations = studentsByIdEvaluations;
     }
 }

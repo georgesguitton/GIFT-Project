@@ -3,7 +3,7 @@ package com.gift.giftproject.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "student", schema = "public", catalog = "GIFT-Project")
+@Table(name = "student", schema = "public")
 public class StudentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -21,10 +21,10 @@ public class StudentEntity {
     @Basic
     @Column(name = "comments", nullable = false, length = -1)
     private String comments;
-    @Basic
-    @Column(name = "id_tutor", nullable = false)
-    private int idTutor;
 
+    @ManyToOne
+    @JoinColumn(name = "id_tutor", referencedColumnName = "id_tutor", nullable = false)
+    private TutorEntity tutorByIdTutor;
     @ManyToOne
     @JoinColumn(name = "id_internship", referencedColumnName = "id_internship", nullable = false)
     private InternshipEntity internshipByIdInternship;
@@ -75,14 +75,6 @@ public class StudentEntity {
         this.comments = comments;
     }
 
-    public int getIdTutor() {
-        return idTutor;
-    }
-
-    public void setIdTutor(int idTutor) {
-        this.idTutor = idTutor;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -91,7 +83,6 @@ public class StudentEntity {
         StudentEntity that = (StudentEntity) o;
 
         if (id != that.id) return false;
-        if (idTutor != that.idTutor) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
         if (studentGroup != null ? !studentGroup.equals(that.studentGroup) : that.studentGroup != null) return false;
@@ -107,8 +98,15 @@ public class StudentEntity {
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (studentGroup != null ? studentGroup.hashCode() : 0);
         result = 31 * result + (comments != null ? comments.hashCode() : 0);
-        result = 31 * result + idTutor;
         return result;
+    }
+
+    public TutorEntity getTutorByIdTutor() {
+        return tutorByIdTutor;
+    }
+
+    public void setTutorByIdTutor(TutorEntity tutorByIdTutor) {
+        this.tutorByIdTutor = tutorByIdTutor;
     }
 
     public InternshipEntity getInternshipByIdInternship() {
