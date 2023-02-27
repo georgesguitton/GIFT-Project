@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.security.Principal;
 import java.util.Collection;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TutorEntity {
+public class TutorEntity implements Principal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_tutor", nullable = false)
@@ -109,6 +110,11 @@ public class TutorEntity {
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String getName() {
+        return this.getFirstname() + " " + this.getLastname();
     }
 
     public Collection<StudentEntity> getStudentsByIdTutor() {

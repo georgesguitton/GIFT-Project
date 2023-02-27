@@ -1,9 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<html>
+<!DOCTYPE>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <title>Welcome to GIFT</title>
 </head>
 <body>
-Hello
+<jsp:include page="../partials/authenticated-header.jsp">
+    <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
+</jsp:include>
+<main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    Hello world!
+</main>
 </body>
 </html>

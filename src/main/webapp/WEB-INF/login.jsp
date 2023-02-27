@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!-- source: https://tailwindui.com/components/application-ui/forms/sign-in-forms -->
+<!DOCTYPE>
 <html lang="en">
 <head>
     <title>Login to GIFT</title>
