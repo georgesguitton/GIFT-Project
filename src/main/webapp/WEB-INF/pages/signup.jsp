@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Sign Up to GIFT</title>
@@ -6,8 +7,8 @@
 <body class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 <main class="w-full max-w-md space-y-8">
     <div>
-        <h2 class="mt-6 text-center text-2xl font-bold tracking-tight text-gray-900">Register to</h2>
-        <h3 class="mt-4 text-center text-3xl text-gray-700">Great Intern Follow-up Tool</h3>
+        <h2 class="mt-6 text-center text-2xl text-gray-900">Register to</h2>
+        <h3 class="mt-4 text-center text-3xl tracking-tight font-bold text-gray-700">Great Intern Follow-up Tool</h3>
     </div>
     <form class="mt-8 space-y-6" method="POST" action="signup">
         <div class="space-y-2 rounded-md shadow-sm">

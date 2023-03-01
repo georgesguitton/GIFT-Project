@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login Page</title>
