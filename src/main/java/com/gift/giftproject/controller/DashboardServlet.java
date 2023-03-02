@@ -16,4 +16,10 @@ public class DashboardServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getServletContext().getRequestDispatcher(DASHBOARD_PAGE).forward(request, response);
     }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // to handle form redirection on successful login
+        request.getServletContext().getRequestDispatcher(DASHBOARD_PAGE).forward(request, response);
+    }
 }

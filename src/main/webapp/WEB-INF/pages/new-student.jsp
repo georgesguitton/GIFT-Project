@@ -18,7 +18,7 @@
       Add a new intern to follow-up
     </h1>
 
-    <form name="new-student" action="/add-student">
+    <form name="new-student" method="post" action="new-student">
       <l:two-column-form>
         <jsp:attribute name="formTitle">
           <h3 class="text-base font-semibold leading-6 text-gray-900">Student</h3>

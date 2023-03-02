@@ -41,16 +41,16 @@ CREATE TABLE Internship(
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-CREATE SEQUENCE Documents_seq;
+CREATE SEQUENCE DocumentStatus_seq;
 
-CREATE TABLE Documents(
-        id_documents              Int  Default nextval ('Documents_seq')  NOT NULL ,
+CREATE TABLE DocumentStatus(
+        id_DocumentStatus              Int  Default nextval ('DocumentStatus_seq')  NOT NULL ,
         is_specs_done             Bool NOT NULL ,
         is_visit_form_done        Bool NOT NULL ,
         is_company_eval_form_done Bool NOT NULL ,
         is_web_poll_done          Bool NOT NULL ,
         is_report_done            Bool NOT NULL
-	,CONSTRAINT Documents_PK PRIMARY KEY (id_documents)
+	,CONSTRAINT DocumentStatus_PK PRIMARY KEY (id_DocumentStatus)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
@@ -65,13 +65,13 @@ CREATE TABLE Student(
         id_tutor       Int NOT NULL ,
         id_internship  Int NOT NULL ,
         id_evaluations Int NOT NULL ,
-        id_documents   Int NOT NULL
+        id_DocumentStatus   Int NOT NULL
 	,CONSTRAINT Student_PK PRIMARY KEY (id)
 
 	,CONSTRAINT Student_Tutor_FK FOREIGN KEY (id_tutor) REFERENCES Tutor(id_tutor)
 	,CONSTRAINT Student_Internship0_FK FOREIGN KEY (id_internship) REFERENCES Internship(id_internship)
 	,CONSTRAINT Student_Evaluations1_FK FOREIGN KEY (id_evaluations) REFERENCES Evaluations(id_evaluations)
-	,CONSTRAINT Student_Documents2_FK FOREIGN KEY (id_documents) REFERENCES Documents(id_documents)
+	,CONSTRAINT Student_DocumentStatus2_FK FOREIGN KEY (id_DocumentStatus) REFERENCES DocumentStatus(id_DocumentStatus)
 );
 
 
@@ -102,20 +102,20 @@ VALUES (FALSE, TRUE, '2022-05-01', '2022-08-31', 'Widget Co.', '456 Oak St., Any
 INSERT INTO Internship (is_visit_planified, is_visit_done, start_date, end_date, company_name, company_address, mission, company_tutor)
 VALUES (TRUE, FALSE, '2022-06-15', '2022-10-15', 'Gadget Corp.', '789 Maple St., Anytown, USA', 'Optimized database queries', 'Charlie Brown');
 
-INSERT INTO Documents (is_specs_done, is_visit_form_done, is_company_eval_form_done, is_web_poll_done, is_report_done)
+INSERT INTO DocumentStatus (is_specs_done, is_visit_form_done, is_company_eval_form_done, is_web_poll_done, is_report_done)
 VALUES (TRUE, TRUE, TRUE, TRUE, TRUE);
 
-INSERT INTO Documents (is_specs_done, is_visit_form_done, is_company_eval_form_done, is_web_poll_done, is_report_done)
+INSERT INTO DocumentStatus (is_specs_done, is_visit_form_done, is_company_eval_form_done, is_web_poll_done, is_report_done)
 VALUES (TRUE, TRUE, FALSE, TRUE, FALSE);
 
-INSERT INTO Documents (is_specs_done, is_visit_form_done, is_company_eval_form_done, is_web_poll_done, is_report_done)
+INSERT INTO DocumentStatus (is_specs_done, is_visit_form_done, is_company_eval_form_done, is_web_poll_done, is_report_done)
 VALUES (FALSE, TRUE, TRUE, FALSE, TRUE);
 
-INSERT INTO Student (firstname, lastname, student_group, comments, id_tutor, id_internship, id_evaluations, id_documents)
+INSERT INTO Student (firstname, lastname, student_group, comments, id_tutor, id_internship, id_evaluations, id_DocumentStatus)
 VALUES ('John', 'Smith', 'L3', 'Excellent work', 1, 1, 1, 1);
 
-INSERT INTO Student (firstname, lastname, student_group, comments, id_tutor, id_internship, id_evaluations, id_documents)
+INSERT INTO Student (firstname, lastname, student_group, comments, id_tutor, id_internship, id_evaluations, id_DocumentStatus)
 VALUES ('Jane', 'Doe', 'M1', 'Needs improvement', 2, 2, 2, 2);
 
-INSERT INTO Student (firstname, lastname, student_group, comments, id_tutor, id_internship, id_evaluations, id_documents)
+INSERT INTO Student (firstname, lastname, student_group, comments, id_tutor, id_internship, id_evaluations, id_DocumentStatus)
 VALUES ('Mark', 'Johnson', 'M2', 'Great potential', 3, 3, 3, 3);

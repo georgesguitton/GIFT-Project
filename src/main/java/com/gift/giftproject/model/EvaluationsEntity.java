@@ -1,11 +1,17 @@
 package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
 @Entity
 @Table(name = "evaluations", schema = "public")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class EvaluationsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

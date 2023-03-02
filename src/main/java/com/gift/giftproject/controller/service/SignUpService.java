@@ -6,16 +6,14 @@ import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
-import jakarta.transaction.Transactional;
 
 @Stateless
 public class SignUpService {
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 
     @Inject
     private Pbkdf2PasswordHash passwordHash;
 
-    @Transactional
     public void createTutorEntity(CreateTutorEntityCommand request) {
         final var tutor = TutorEntity.builder()
                 .email(request.email())

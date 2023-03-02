@@ -10,6 +10,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "tutor", schema = "public")
+@NamedQuery(name = "findTutorByEmail", query = "SELECT t FROM TutorEntity t WHERE t.email = :email")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -33,7 +34,7 @@ public class TutorEntity implements Principal {
     @Basic
     @Column(name = "role", nullable = true, length = 50)
     private String role;
-    @OneToMany(mappedBy = "tutorByIdTutor")
+    @OneToMany(mappedBy = "tutorByIdTutor", cascade = CascadeType.PERSIST)
     private Collection<StudentEntity> studentsByIdTutor;
 
     public int getIdTutor() {

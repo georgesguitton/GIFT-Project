@@ -1,12 +1,18 @@
 package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.util.Collection;
 
 @Entity
 @Table(name = "internship", schema = "public")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class InternshipEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

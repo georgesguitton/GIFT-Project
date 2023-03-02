@@ -1,16 +1,20 @@
 package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
-
-import java.util.Collection;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "documents", schema = "public", catalog = "GIFTProject")
-public class DocumentsEntity {
+@Table(name = "documentstatus", schema = "public")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class DocumentstatusEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_documents", nullable = false)
-    private int idDocuments;
+    @Column(name = "id_documentstatus", nullable = false)
+    private int idDocumentstatus;
     @Basic
     @Column(name = "is_specs_done", nullable = false)
     private boolean isSpecsDone;
@@ -26,15 +30,13 @@ public class DocumentsEntity {
     @Basic
     @Column(name = "is_report_done", nullable = false)
     private boolean isReportDone;
-    @OneToMany(mappedBy = "documentsByIdDocuments")
-    private Collection<StudentEntity> studentsByIdDocuments;
 
-    public int getIdDocuments() {
-        return idDocuments;
+    public int getIdDocumentstatus() {
+        return idDocumentstatus;
     }
 
-    public void setIdDocuments(int idDocuments) {
-        this.idDocuments = idDocuments;
+    public void setIdDocumentstatus(int idDocumentstatus) {
+        this.idDocumentstatus = idDocumentstatus;
     }
 
     public boolean isSpecsDone() {
@@ -82,9 +84,9 @@ public class DocumentsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DocumentsEntity that = (DocumentsEntity) o;
+        DocumentstatusEntity that = (DocumentstatusEntity) o;
 
-        if (idDocuments != that.idDocuments) return false;
+        if (idDocumentstatus != that.idDocumentstatus) return false;
         if (isSpecsDone != that.isSpecsDone) return false;
         if (isVisitFormDone != that.isVisitFormDone) return false;
         if (isCompanyEvalFormDone != that.isCompanyEvalFormDone) return false;
@@ -96,20 +98,12 @@ public class DocumentsEntity {
 
     @Override
     public int hashCode() {
-        int result = idDocuments;
+        int result = idDocumentstatus;
         result = 31 * result + (isSpecsDone ? 1 : 0);
         result = 31 * result + (isVisitFormDone ? 1 : 0);
         result = 31 * result + (isCompanyEvalFormDone ? 1 : 0);
         result = 31 * result + (isWebPollDone ? 1 : 0);
         result = 31 * result + (isReportDone ? 1 : 0);
         return result;
-    }
-
-    public Collection<StudentEntity> getStudentsByIdDocuments() {
-        return studentsByIdDocuments;
-    }
-
-    public void setStudentsByIdDocuments(Collection<StudentEntity> studentsByIdDocuments) {
-        this.studentsByIdDocuments = studentsByIdDocuments;
     }
 }

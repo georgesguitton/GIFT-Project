@@ -1,9 +1,15 @@
 package com.gift.giftproject.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "student", schema = "public")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class StudentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -25,15 +31,15 @@ public class StudentEntity {
     @ManyToOne
     @JoinColumn(name = "id_tutor", referencedColumnName = "id_tutor", nullable = false)
     private TutorEntity tutorByIdTutor;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_internship", referencedColumnName = "id_internship", nullable = false)
     private InternshipEntity internshipByIdInternship;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_evaluations", referencedColumnName = "id_evaluations", nullable = false)
     private EvaluationsEntity evaluationsByIdEvaluations;
-    @ManyToOne
-    @JoinColumn(name = "id_documents", referencedColumnName = "id_documents", nullable = false)
-    private DocumentsEntity documentsByIdDocuments;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_documentstatus", referencedColumnName = "id_documentstatus", nullable = false)
+    private DocumentstatusEntity documentsByIdDocuments;
 
     public int getId() {
         return id;
@@ -125,11 +131,11 @@ public class StudentEntity {
         this.evaluationsByIdEvaluations = evaluationsByIdEvaluations;
     }
 
-    public DocumentsEntity getDocumentsByIdDocuments() {
+    public DocumentstatusEntity getDocumentsByIdDocuments() {
         return documentsByIdDocuments;
     }
 
-    public void setDocumentsByIdDocuments(DocumentsEntity documentsByIdDocuments) {
+    public void setDocumentsByIdDocuments(DocumentstatusEntity documentsByIdDocuments) {
         this.documentsByIdDocuments = documentsByIdDocuments;
     }
 }

@@ -5,7 +5,7 @@
              version="3.0">
     <persistence-unit name="default">
 
-        <class>com.gift.giftproject.model.DocumentsEntity</class>
+        <class>com.gift.giftproject.model.DocumentstatusEntity</class>
         <class>com.gift.giftproject.model.EvaluationsEntity</class>
         <class>com.gift.giftproject.model.InternshipEntity</class>
         <class>com.gift.giftproject.model.StudentEntity</class>

@@ -8,5 +8,16 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/GIFTProject</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="default/EclipseLink" uuid="45df86da-4035-4cca-a197-15618ac56cd3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>EclipseLink
+
+C:/Users/paulg/Documents/Dossier personnel/Devoir Efrei/M2/Advanced programming/GIFT-Project/src/main/resources/META-INF/persistence.xml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/GIFTProject</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
