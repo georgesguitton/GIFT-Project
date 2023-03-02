@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "student", schema = "public")
+@NamedQuery(name = "findStudentsOfTutorId", query = "SELECT s from StudentEntity s where s.tutorByIdTutor.idTutor = :idTutor")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

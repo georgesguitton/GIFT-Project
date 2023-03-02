@@ -3,6 +3,7 @@ package com.gift.giftproject.controller.service;
 import com.gift.giftproject.controller.command.CreateStudentWithInternshipEntity;
 import com.gift.giftproject.model.*;
 import jakarta.ejb.Stateless;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -10,31 +11,19 @@ import jakarta.persistence.Persistence;
 public class StudentService {
     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 
+    @Inject
+    private DocumentStatusService documentStatusService;
+
+    @Inject
+    private EvaluationService evaluationService;
+
+    @Inject
+    private InternshipService internshipService;
+
     public void createStudentWithInternshipEntity(TutorEntity tutor, CreateStudentWithInternshipEntity request) {
-        final var internship = InternshipEntity.builder()
-                .companyName(request.companyName())
-                .companyAddress(request.companyAddress())
-                .companyTutor(request.tutorName())
-                .startDate(request.startDate())
-                .endDate(request.endDate())
-                .mission(request.mission())
-                .isVisitPlanified(false)
-                .isVisitDone(false)
-                .build();
-
-        final var evaluation = EvaluationsEntity.builder()
-                .oralPresentation(false)
-                .communicationGrade(0)
-                .technicalGrade(0)
-                .build();
-
-        final var documents = DocumentstatusEntity.builder()
-                .isSpecsDone(false)
-                .isVisitFormDone(false)
-                .isCompanyEvalFormDone(false)
-                .isReportDone(false)
-                .isWebPollDone(false)
-                .build();
+        final var internship = internshipService.setInternshipEntity(request);
+        final var evaluation = evaluationService.getEmptyEvaluationStatus();
+        final var documents = documentStatusService.getEmptyDocumentStatus();
 
         final var student = StudentEntity.builder()
                 .firstname(request.firstname())
