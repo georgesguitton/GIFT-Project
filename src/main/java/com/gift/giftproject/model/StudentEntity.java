@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "student", schema = "public")
-@NamedQuery(name = "findStudentsOfTutorId", query = "SELECT s from StudentEntity s where s.tutorByIdTutor.idTutor = :idTutor")
+@NamedQueries({
+        @NamedQuery(name = "findStudentsOfTutorId", query = "SELECT s FROM StudentEntity s WHERE s.tutorByIdTutor.idTutor = :idTutor"),
+        @NamedQuery(name = "deleteStudentOfTutorById", query = "DELETE FROM StudentEntity s WHERE s.id = :idStudent AND s.tutorByIdTutor.idTutor = :idTutor")
+})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -32,13 +35,13 @@ public class StudentEntity {
     @ManyToOne
     @JoinColumn(name = "id_tutor", referencedColumnName = "id_tutor", nullable = false)
     private TutorEntity tutorByIdTutor;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_internship", referencedColumnName = "id_internship", nullable = false)
     private InternshipEntity internshipByIdInternship;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_evaluations", referencedColumnName = "id_evaluations", nullable = false)
     private EvaluationsEntity evaluationsByIdEvaluations;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_documentstatus", referencedColumnName = "id_documentstatus", nullable = false)
     private DocumentstatusEntity documentsByIdDocuments;
 

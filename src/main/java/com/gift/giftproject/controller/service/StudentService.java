@@ -7,6 +7,8 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.List;
+
 @Stateless
 public class StudentService {
     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -40,6 +42,30 @@ public class StudentService {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(student);
+            entityManager.getTransaction().commit();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public List<StudentEntity> getTutorStudents(TutorEntity tutor) {
+        final var entityManager = entityManagerFactory.createEntityManager();
+
+        final var query = entityManager.createNamedQuery("findStudentsOfTutorId", StudentEntity.class);
+        query.setParameter("idTutor", tutor.getIdTutor());
+
+        return query.getResultList();
+    }
+
+    public void deleteStudentId(TutorEntity tutor, int studentId) {
+        final var entityManager = entityManagerFactory.createEntityManager();
+
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.createNamedQuery("deleteStudentOfTutorById")
+                    .setParameter("idStudent", studentId)
+                    .setParameter("idTutor", tutor.getIdTutor())
+                    .executeUpdate();
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();

@@ -729,6 +729,10 @@ select {
   margin-right: auto;
 }
 
+.-mb-8 {
+  margin-bottom: -2rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -743,6 +747,10 @@ select {
 
 .mt-1 {
   margin-top: 0.25rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
 }
 
 .mt-2 {
@@ -843,6 +851,10 @@ select {
   justify-content: space-between;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .gap-6 {
   gap: 1.5rem;
 }
@@ -871,6 +883,12 @@ select {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -881,6 +899,10 @@ select {
 
 .rounded-none {
   border-radius: 0px;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 
 .rounded-b-md {
@@ -985,8 +1007,24 @@ select {
   padding-bottom: 1.25rem;
 }
 
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
 .pr-0 {
   padding-right: 0px;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
@@ -1017,6 +1055,11 @@ select {
   line-height: 1.25rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1040,6 +1083,11 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .text-gray-600 {
@@ -1084,6 +1132,11 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.hover\:bg-indigo-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-indigo-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(67 56 202 / var(--tw-bg-opacity));
@@ -1123,6 +1176,22 @@ select {
   --tw-ring-offset-width: 2px;
 }
 
+.focus-visible\:outline:focus-visible {
+  outline-style: solid;
+}
+
+.focus-visible\:outline-2:focus-visible {
+  outline-width: 2px;
+}
+
+.focus-visible\:outline-offset-2:focus-visible {
+  outline-offset: 2px;
+}
+
+.focus-visible\:outline-indigo-500:focus-visible {
+  outline-color: #6366f1;
+}
+
 @media (min-width: 640px) {
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
@@ -1136,8 +1205,30 @@ select {
     grid-column: span 4 / span 4;
   }
 
+  .sm\:mt-0 {
+    margin-top: 0px;
+  }
+
   .sm\:block {
     display: block;
+  }
+
+  .sm\:grid {
+    display: grid;
+  }
+
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sm\:gap-4 {
+    gap: 1rem;
+  }
+
+  .sm\:divide-y-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
   }
 
   .sm\:overflow-hidden {
@@ -1146,6 +1237,10 @@ select {
 
   .sm\:rounded-md {
     border-radius: 0.375rem;
+  }
+
+  .sm\:p-4 {
+    padding: 1rem;
   }
 
   .sm\:p-6 {
@@ -1160,6 +1255,10 @@ select {
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:text-right {
+    text-align: right;
   }
 
   .sm\:text-4xl {
@@ -1196,6 +1295,10 @@ select {
 
   .md\:gap-6 {
     gap: 1.5rem;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
   }
 }
 

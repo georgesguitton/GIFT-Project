@@ -15,10 +15,9 @@ import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PAGE;
 import static com.gift.giftproject.RouteViewConstants.SIGN_UP_PAGE;
 
 @WebServlet(name = "signupServlet", value = "/signup")
-
 public class SignUpServlet extends HttpServlet {
     @Inject
-    private SignUpService signUpServiceBean;
+    private SignUpService signUpService;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +28,7 @@ public class SignUpServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
 
-        signUpServiceBean.createTutorEntity(new CreateTutorEntityCommand(
+        signUpService.createTutorEntity(new CreateTutorEntityCommand(
                 request.getParameter("email"),
                 request.getParameter("firstname"),
                 request.getParameter("lastname"),
