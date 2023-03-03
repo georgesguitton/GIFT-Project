@@ -29,10 +29,15 @@
 </section>
 
 <section>
-    <h2 class="mt-12 text-2xl font-bold tracking-tight text-gray-900">List of my students</h2>
+    <div class="mt-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <h2 class="flex-1 text-2xl font-bold tracking-tight text-gray-900">List of my students</h2>
+        <div class="flex">
+            <a href="new-student" class="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Add student</a>
+        </div>
+    </div>
 
     <ul class="mt-6 space-y-6">
-            <%--@elvariable id="students" type="java.util.List<com.gift.giftproject.model.StudentEntity>"--%>
+        <%--@elvariable id="students" type="java.util.List<com.gift.giftproject.model.StudentEntity>"--%>
         <c:forEach items="${students}" var="student">
             <li>
                 <l:card>
