@@ -42,7 +42,7 @@
             <li>
                 <l:card>
                     <div class="grid grid-cols-6 gap-4 divide-y sm:divide-y-0">
-                        <a href="show-student?studentId=${student.id}" class="p-2 hover:bg-slate-200 hover:rounded-md col-span-6 sm:col-span-3 md:col-span-2">
+                        <a href="edit-student?studentId=${student.id}" class="p-2 hover:bg-slate-200 hover:rounded-md col-span-6 sm:col-span-3 md:col-span-2">
                             <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Trainee Information</h3>
                             <div class="col-span-6 sm:col-span-2">
                                 <dl>
@@ -55,10 +55,10 @@
                         </a>
 
                         <div class="p-2 hover:bg-slate-200 hover:rounded-md col-span-6 sm:col-span-3 md:col-span-2 pt-4 md:pt-0">
-                            <a href="show-student?studentId=${student.id}">
+                            <a href="edit-student?studentId=${student.id}">
                                 <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Internship Information</h3>
                             </a>
-                            <a href="show-student?studentId=${student.id}" class="col-span-6 sm:col-span-2">
+                            <a href="edit-student?studentId=${student.id}" class="col-span-6 sm:col-span-2">
                                 <dl>
                                     <l:data-group title="Company Name">${student.internshipByIdInternship.companyName}</l:data-group>
                                     <l:data-group title="Address">${student.internshipByIdInternship.companyAddress}</l:data-group>

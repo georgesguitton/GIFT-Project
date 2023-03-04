@@ -13,11 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.gift.giftproject.RouteViewConstants.SHOW_STUDENT_PAGE;
+import static com.gift.giftproject.RouteViewConstants.EDIT_STUDENT_PAGE;
 
-@WebServlet(name = "showStudentServlet", value = "/show-student")
+@WebServlet(name = "showStudentServlet", value = "/edit-student")
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
-public class ShowStudentServlet extends HttpServlet {
+public class EditStudentServlet extends HttpServlet {
     @Inject
     private StudentService studentService;
 
@@ -40,6 +40,6 @@ public class ShowStudentServlet extends HttpServlet {
         request.setAttribute("enddate", dateFormatter.format(student.getInternshipByIdInternship().getEndDate()));
 
 
-        request.getServletContext().getRequestDispatcher(SHOW_STUDENT_PAGE).forward(request, response);
+        request.getServletContext().getRequestDispatcher(EDIT_STUDENT_PAGE).forward(request, response);
     }
 }
