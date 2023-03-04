@@ -34,7 +34,7 @@ public class TutorEntity implements Principal {
     @Basic
     @Column(name = "role", nullable = true, length = 50)
     private String role;
-    @OneToMany(mappedBy = "tutorByIdTutor", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "tutorByIdTutor", cascade = CascadeType.ALL)
     private Collection<StudentEntity> studentsByIdTutor;
 
     public int getIdTutor() {

@@ -781,8 +781,12 @@ select {
   margin-top: 2rem;
 }
 
-.mt-\[1\.3rem\] {
-  margin-top: 1.3rem;
+.mt-\[1\.25rem\] {
+  margin-top: 1.25rem;
+}
+
+.mt-\[1\.1rem\] {
+  margin-top: 1.1rem;
 }
 
 .block {
@@ -877,6 +881,10 @@ select {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .-space-y-px > :not([hidden]) ~ :not([hidden]) {

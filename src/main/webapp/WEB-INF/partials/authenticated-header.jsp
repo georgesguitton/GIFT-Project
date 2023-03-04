@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- source: https://tailwindui.com/components/application-ui/navigation/navbars -->
 
 <nav class="bg-gray-800">
@@ -12,7 +13,7 @@
             </div>
             <div class="right-0 flex items-center static inset-auto ml-6 pr-0">
                 <p class="text-gray-300 rounded-md py-2.5 px-4 text-sm font-medium">
-                    ${param.username}
+                    <c:out value="${param.username}"/>
                 </p>
 
                 <a href="logout"

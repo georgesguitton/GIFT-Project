@@ -64,7 +64,7 @@
                                     <l:data-group title="Address">${student.internshipByIdInternship.companyAddress}</l:data-group>
                                     <l:data-group title="Company Tutor">${student.internshipByIdInternship.companyTutor}</l:data-group>
                                     <l:data-group title="Period">
-                                        From <fmt:formatDate value="${student.internshipByIdInternship.startDate}"/>&nbsp;
+                                        From <fmt:formatDate value="${student.internshipByIdInternship.startDate}"/>
                                         to <fmt:formatDate value="${student.internshipByIdInternship.endDate}"/>
                                     </l:data-group>
                                 </dl>
@@ -97,6 +97,10 @@
                                     <l:data-group title="Company feeling">
                                         <input type="checkbox" class="rounded-sm" id="student${student.id}_companyEvalFormDone" name="student${student.id}_companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone && "checked"}/>
                                         <label for="student${student.id}_companyEvalFormDone">Done</label>
+                                    </l:data-group>
+                                    <l:data-group title="Web form">
+                                        <input type="checkbox" class="rounded-sm" id="student${student.id}_webPollDone" name=student${student.id}_webPollDone" ${student.documentsByIdDocuments.webPollDone && "checked"}/>
+                                        <label for="student${student.id}_webPollDone">Done</label>
                                     </l:data-group>
                                     <l:data-group title="Final report">
                                         <input type="checkbox" class="rounded-sm" id="student${student.id}_reportDone" name="student${student.id}_reportDone" ${student.documentsByIdDocuments.reportDone && "checked"}/>

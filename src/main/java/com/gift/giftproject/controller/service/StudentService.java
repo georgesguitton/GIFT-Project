@@ -1,6 +1,7 @@
 package com.gift.giftproject.controller.service;
 
 import com.gift.giftproject.controller.command.CreateStudentWithInternshipEntity;
+import com.gift.giftproject.controller.command.UpdateStudentDetailCommand;
 import com.gift.giftproject.model.*;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -78,5 +79,36 @@ public class StudentService {
                 .setParameter("idStudent", studentId)
                 .setParameter("idTutor", tutor.getIdTutor())
                 .getSingleResult();
+    }
+
+    public void updateTutorStudent(TutorEntity tutor, int studentId, UpdateStudentDetailCommand request) {
+        final var entityManager = entityManagerFactory.createEntityManager();
+
+        try {
+            entityManager.getTransaction().begin();
+
+            final var student = entityManager.find(StudentEntity.class, getStudentById(tutor, studentId).getId());
+            student.setFirstname(request.firstname());
+            student.setLastname(request.lastname());
+            student.setStudentGroup(request.group());
+            student.setComments(request.comments());
+
+            internshipService.setInternshipFromUpdateStudentDetailCommand(
+                    student.getInternshipByIdInternship().getIdInternship(),
+                    request);
+
+            documentStatusService.setDocumentstatusFromUpdateStudentDetailCommand(
+                    student.getDocumentsByIdDocuments().getIdDocumentstatus(),
+                    request
+            );
+
+            evaluationService.setEvaluationFromUpdateStudentDetailCommand(
+                    student.getEvaluationsByIdEvaluations().getIdEvaluations(),
+                    request);
+
+            entityManager.getTransaction().commit();
+        } finally {
+            entityManager.close();
+        }
     }
 }

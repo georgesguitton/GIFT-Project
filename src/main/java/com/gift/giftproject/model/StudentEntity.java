@@ -36,13 +36,13 @@ public class StudentEntity {
     @ManyToOne
     @JoinColumn(name = "id_tutor", referencedColumnName = "id_tutor", nullable = false)
     private TutorEntity tutorByIdTutor;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_internship", referencedColumnName = "id_internship", nullable = false)
     private InternshipEntity internshipByIdInternship;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_evaluations", referencedColumnName = "id_evaluations", nullable = false)
     private EvaluationsEntity evaluationsByIdEvaluations;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_documentstatus", referencedColumnName = "id_documentstatus", nullable = false)
     private DocumentstatusEntity documentsByIdDocuments;
 

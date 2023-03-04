@@ -23,7 +23,8 @@
             </h1>
         </section>
 
-        <form>
+        <form method="POST" action="edit-student">
+            <input type="hidden" name="studentId" value="${student.id}"/>
             <div class="grid grid-cols-6 sm:grid-rows-2 gap-4 divide-y sm:divide-y-0">
                 <div class="col-span-6 sm:col-span-2">
                     <l:card>
@@ -87,15 +88,15 @@
                             <l:data-group title="Visit">
                             <span class="block sm:inline sm:pr-4">
                                 <input type="checkbox" class="rounded-sm"
-                                       id="student${student.id}_visitPlanified"
-                                       name="student${student.id}_visitPlanified" ${student.internshipByIdInternship.visitPlanified && "checked"}/>
-                                <label for="student${student.id}_visitPlanified">Planed</label>
+                                       id="visitPlanified"
+                                       name="visitPlanified" ${student.internshipByIdInternship.visitPlanified && "checked"}/>
+                                <label for="visitPlanified">Planed</label>
                             </span>
                                 <span class="block sm:inline">
                                 <input type="checkbox" class="rounded-sm"
-                                       id="student${student.id}_visitDone"
-                                       name="student${student.id}_visitDone" ${student.internshipByIdInternship.visitDone && "checked"}/>
-                                <label for="student${student.id}_visitDone">Done</label>
+                                       id="visitDone"
+                                       name="visitDone" ${student.internshipByIdInternship.visitDone && "checked"}/>
+                                <label for="visitDone">Done</label>
                             </span>
                             </l:data-group>
                         </div>
@@ -107,29 +108,75 @@
                         <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Document status</h3>
                         <div class="col-span-6 sm:col-span-2">
                             <dl>
-                                <l:data-group title="Spec">
-                                    <input type="checkbox" class="rounded-sm" id="student${student.id}_specsDone" name="student${student.id}_specsDone" ${student.documentsByIdDocuments.specsDone && "checked"}/>
-                                    <label for="student${student.id}_specsDone">Done</label>
+                                <l:data-group title="Specifications">
+                                    <input type="checkbox" class="rounded-sm" id="specDone"
+                                           name="specDone" ${student.documentsByIdDocuments.specsDone && "checked"}/>
+                                    <label for="specDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Visit form">
-                                    <input type="checkbox" class="rounded-sm" id="student${student.id}_visitFormDone" name="student${student.id}_visitFormDone" ${student.documentsByIdDocuments.visitFormDone && "checked"}/>
-                                    <label for="student${student.id}_visitFormDone">Done</label>
+                                    <input type="checkbox" class="rounded-sm" id="visitFormDone"
+                                           name="visitFormDone" ${student.documentsByIdDocuments.visitFormDone && "checked"}/>
+                                    <label for="visitFormDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Company feeling">
-                                    <input type="checkbox" class="rounded-sm" id="student${student.id}_companyEvalFormDone" name="student${student.id}_companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone && "checked"}/>
-                                    <label for="student${student.id}_companyEvalFormDone">Done</label>
+                                    <input type="checkbox" class="rounded-sm" id="companyEvalFormDone"
+                                           name="companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone && "checked"}/>
+                                    <label for="companyEvalFormDone">Done</label>
+                                </l:data-group>
+                                <l:data-group title="Web form">
+                                    <input type="checkbox" class="rounded-sm" id="webPollDone"
+                                           name="webPollDone" ${student.documentsByIdDocuments.webPollDone && "checked"}/>
+                                    <label for="webPollDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Final report">
-                                    <input type="checkbox" class="rounded-sm" id="student${student.id}_reportDone" name="student${student.id}_reportDone" ${student.documentsByIdDocuments.reportDone && "checked"}/>
-                                    <label for="student${student.id}_reportDone">Done</label>
+                                    <input type="checkbox" class="rounded-sm" id="reportDone"
+                                           name="reportDone" ${student.documentsByIdDocuments.reportDone && "checked"}/>
+                                    <label for="reportDone">Done</label>
                                 </l:data-group>
-                                <div class="mt-[1.3rem]">
+                            </dl>
+                        </div>
+
+                        <h3 class="pt-4 pb-2 text-base font-semibold leading-6 text-gray-900">Evaluation</h3>
+                        <div class="col-span-6 sm:col-span-2">
+                            <dl>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <jsp:include page="../partials/input-number-group.jsp">
+                                            <jsp:param name="labelText" value="Technical grade"/>
+                                            <jsp:param name="formId" value="technicalgrade"/>
+                                            <jsp:param name="formName" value="technicalgrade"/>
+                                            <jsp:param name="formValue"
+                                                       value="${student.evaluationsByIdEvaluations.technicalGrade}"/>
+                                            <jsp:param name="formMin" value="0"/>
+                                            <jsp:param name="formMax" value="20"/>
+                                            <jsp:param name="formRequired" value="true"/>
+                                        </jsp:include>
+                                    </div>
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <jsp:include page="../partials/input-number-group.jsp">
+                                            <jsp:param name="labelText" value="Communication grade"/>
+                                            <jsp:param name="formId" value="communicationgrade"/>
+                                            <jsp:param name="formName" value="communicationgrade"/>
+                                            <jsp:param name="formValue"
+                                                       value="${student.evaluationsByIdEvaluations.communicationGrade}"/>
+                                            <jsp:param name="formMin" value="0"/>
+                                            <jsp:param name="formMax" value="20"/>
+                                            <jsp:param name="formRequired" value="true"/>
+                                        </jsp:include>
+                                    </div>
+                                </div>
+                                <l:data-group title="Oral Presentation">
+                                    <input type="checkbox" class="rounded-sm" id="oralPresentationDone"
+                                           name="oralPresentationDone" ${student.documentsByIdDocuments.visitFormDone && "checked"}/>
+                                    <label for="oralPresentationDone">Done</label>
+                                </l:data-group>
+                                <div class="mt-[1.1rem]">
                                     <jsp:include page="../partials/textarea-group.jsp">
                                         <jsp:param name="labelText" value="Comments"/>
                                         <jsp:param name="formId" value="comments"/>
                                         <jsp:param name="formName" value="comments"/>
                                         <jsp:param name="formValue" value="${student.comments}"/>
-                                        <jsp:param name="formRows" value="15"/>
+                                        <jsp:param name="formRows" value="5"/>
                                         <jsp:param name="formRequired" value="true"/>
                                     </jsp:include>
                                 </div>
@@ -141,7 +188,6 @@
                 <div class="col-span-6 sm:col-span-4">
                     <l:card>
                         <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Internship Details</h3>
-
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-2 sm:col-span-1">
                                 <jsp:include page="../partials/input-date-group.jsp">
@@ -157,7 +203,7 @@
                                 <jsp:include page="../partials/input-date-group.jsp">
                                     <jsp:param name="labelText" value="End date"/>
                                     <jsp:param name="formId" value="endate"/>
-                                    <jsp:param name="formName" value="endate"/>
+                                    <jsp:param name="formName" value="enddate"/>
                                     <jsp:param name="formValue" value="${enddate}"/>
                                     <jsp:param name="formRequired" value="true"/>
                                 </jsp:include>
