@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PAGE;
+import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PATH;
 
 @WebServlet(name = "destroyStudentServlet", value = "/destroy-student")
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
@@ -34,6 +34,6 @@ public class DestroyStudentServlet extends HttpServlet {
                 Integer.parseInt(request.getParameter("studentId"))
         );
 
-        request.getServletContext().getRequestDispatcher(AUTHENTICATED_HOME_PAGE).forward(request, response);
+        response.sendRedirect(request.getContextPath() + AUTHENTICATED_HOME_PATH);
     }
 }

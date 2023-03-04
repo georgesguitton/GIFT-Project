@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 import static com.gift.giftproject.RouteViewConstants.ADD_STUDENT_PAGE;
-import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PAGE;
+import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PATH;
 
 @WebServlet(name = "newStudentServlet", value = "/new-student")
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
@@ -53,6 +53,6 @@ public class NewStudentServlet extends HttpServlet {
                 )
         );
 
-        request.getServletContext().getRequestDispatcher(AUTHENTICATED_HOME_PAGE).forward(request, response);
+        response.sendRedirect(request.getContextPath() + AUTHENTICATED_HOME_PATH);
     }
 }

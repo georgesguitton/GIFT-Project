@@ -80,6 +80,6 @@ public class EditStudentServlet extends HttpServlet {
                 )
         );
 
-        request.getServletContext().getRequestDispatcher(AUTHENTICATED_HOME_PAGE).forward(request, response);
+        response.sendRedirect(request.getContextPath() + EDIT_STUDENT_PATH + "?studentId=" + request.getParameter("studentId"));
     }
 }

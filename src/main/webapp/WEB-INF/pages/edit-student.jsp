@@ -87,15 +87,15 @@
                         <div class="mt-2">
                             <l:data-group title="Visit">
                             <span class="block sm:inline sm:pr-4">
-                                <input type="checkbox" class="rounded-sm"
+                                <input type="checkbox" class="accent-indigo-600 rounded-sm"
                                        id="visitPlanified"
-                                       name="visitPlanified" ${student.internshipByIdInternship.visitPlanified && "checked"}/>
+                                       name="visitPlanified" ${student.internshipByIdInternship.visitPlanified ? "checked" : ""}/>
                                 <label for="visitPlanified">Planed</label>
                             </span>
                                 <span class="block sm:inline">
-                                <input type="checkbox" class="rounded-sm"
+                                <input type="checkbox" class="accent-indigo-600 rounded-sm"
                                        id="visitDone"
-                                       name="visitDone" ${student.internshipByIdInternship.visitDone && "checked"}/>
+                                       name="visitDone" ${student.internshipByIdInternship.visitDone ? "checked" : ""}/>
                                 <label for="visitDone">Done</label>
                             </span>
                             </l:data-group>
@@ -109,28 +109,28 @@
                         <div class="col-span-6 sm:col-span-2">
                             <dl>
                                 <l:data-group title="Specifications">
-                                    <input type="checkbox" class="rounded-sm" id="specDone"
-                                           name="specDone" ${student.documentsByIdDocuments.specsDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="specDone"
+                                           name="specDone" ${student.documentsByIdDocuments.specsDone ? "checked" : ""}/>
                                     <label for="specDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Visit form">
-                                    <input type="checkbox" class="rounded-sm" id="visitFormDone"
-                                           name="visitFormDone" ${student.documentsByIdDocuments.visitFormDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="visitFormDone"
+                                           name="visitFormDone" ${student.documentsByIdDocuments.visitFormDone ? "checked" : ""}/>
                                     <label for="visitFormDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Company feeling">
-                                    <input type="checkbox" class="rounded-sm" id="companyEvalFormDone"
-                                           name="companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="companyEvalFormDone"
+                                           name="companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone ? "checked" : ""}/>
                                     <label for="companyEvalFormDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Web form">
-                                    <input type="checkbox" class="rounded-sm" id="webPollDone"
-                                           name="webPollDone" ${student.documentsByIdDocuments.webPollDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="webPollDone"
+                                           name="webPollDone" ${student.documentsByIdDocuments.webPollDone ? "checked" : ""}/>
                                     <label for="webPollDone">Done</label>
                                 </l:data-group>
                                 <l:data-group title="Final report">
-                                    <input type="checkbox" class="rounded-sm" id="reportDone"
-                                           name="reportDone" ${student.documentsByIdDocuments.reportDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="reportDone"
+                                           name="reportDone" ${student.documentsByIdDocuments.reportDone ? "checked" : ""}/>
                                     <label for="reportDone">Done</label>
                                 </l:data-group>
                             </dl>
@@ -166,8 +166,8 @@
                                     </div>
                                 </div>
                                 <l:data-group title="Oral Presentation">
-                                    <input type="checkbox" class="rounded-sm" id="oralPresentationDone"
-                                           name="oralPresentationDone" ${student.documentsByIdDocuments.visitFormDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="oralPresentationDone"
+                                           name="oralPresentationDone" ${student.documentsByIdDocuments.visitFormDone ? "checked" : ""}/>
                                     <label for="oralPresentationDone">Done</label>
                                 </l:data-group>
                                 <div class="mt-[1.1rem]">

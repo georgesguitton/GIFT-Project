@@ -42,21 +42,29 @@
             <li>
                 <l:card>
                     <div class="grid grid-cols-6 gap-4 divide-y sm:divide-y-0">
-                        <a href="edit-student?studentId=${student.id}" class="p-2 hover:bg-slate-200 hover:rounded-md col-span-6 sm:col-span-3 md:col-span-2">
+                        <a href="edit-student?studentId=${student.id}"
+                           class="p-2 hover:bg-slate-200 hover:rounded-md col-span-6 sm:col-span-3 md:col-span-2">
                             <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Trainee Information</h3>
                             <div class="col-span-6 sm:col-span-2">
                                 <dl>
                                     <l:data-group title="ID">${student.id}</l:data-group>
-                                    <l:data-group title="Last Name">${student.lastname}</l:data-group>
-                                    <l:data-group title="First Name">${student.firstname}</l:data-group>
+                                    <l:data-group title="Name">${student.firstname} ${student.lastname}</l:data-group>
                                     <l:data-group title="Group">${student.studentGroup}</l:data-group>
+                                    <l:data-group title="Grades">
+                                        Tech: ${student.evaluationsByIdEvaluations.technicalGrade},
+                                        Comm: ${student.evaluationsByIdEvaluations.communicationGrade}
+                                    </l:data-group>
+                                    <l:data-group title="Soutenance">
+                                        ${student.evaluationsByIdEvaluations.oralPresentation ? "Done" : "To do"}
+                                    </l:data-group>
                                 </dl>
                             </div>
                         </a>
 
                         <div class="p-2 hover:bg-slate-200 hover:rounded-md col-span-6 sm:col-span-3 md:col-span-2 pt-4 md:pt-0">
                             <a href="edit-student?studentId=${student.id}">
-                                <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Internship Information</h3>
+                                <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Internship
+                                    Information</h3>
                             </a>
                             <a href="edit-student?studentId=${student.id}" class="col-span-6 sm:col-span-2">
                                 <dl>
@@ -72,38 +80,49 @@
 
                             <l:data-group title="Visit">
                                 <span class="block sm:inline sm:pr-4">
-                                    <input type="checkbox" class="rounded-sm" id="student${student.id}_visitPlanified" name="student${student.id}_visitPlanified" ${student.internshipByIdInternship.visitPlanified && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="student${student.id}_visitPlanified"
+                                           name="student${student.id}_visitPlanified" ${student.internshipByIdInternship.visitPlanified? "checked" : ""}/>
                                     <label for="student${student.id}_visitPlanified">Planed</label>
                                 </span>
                                 <span class="block sm:inline">
-                                    <input type="checkbox" class="rounded-sm" id="student${student.id}_visitDone" name="student${student.id}_visitDone" ${student.internshipByIdInternship.visitDone && "checked"}/>
+                                    <input type="checkbox" class="accent-indigo-600 rounded-sm" id="student${student.id}_visitDone"
+                                           name="student${student.id}_visitDone" ${student.internshipByIdInternship.visitDone? "checked" : ""}/>
                                     <label for="student${student.id}_visitDone">Done</label>
                                 </span>
                             </l:data-group>
                         </div>
 
-                        <div class="p-2 col-span-6 sm:col-span-3 md:col-span-2 pt-4 md:pt-0">
-                            <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Document status</h3>
+                        <div class="p-2 hover:bg-slate-200 col-span-6 sm:col-span-3 md:col-span-2 pt-4 md:pt-0">
+                            <a href="edit-student?studentId=${student.id}">
+                                <h3 class="pb-2 text-base font-semibold leading-6 text-gray-900">Document status</h3>
+                            </a>
                             <div class="col-span-6 sm:col-span-2">
                                 <dl>
                                     <l:data-group title="Spec">
-                                        <input type="checkbox" class="rounded-sm" id="student${student.id}_specsDone" name="student${student.id}_specsDone" ${student.documentsByIdDocuments.specsDone && "checked"}/>
+                                        <input type="checkbox" class="accent-indigo-600 rounded-sm" id="student${student.id}_specsDone"
+                                               name="student${student.id}_specsDone" ${student.documentsByIdDocuments.specsDone? "checked" : ""}/>
                                         <label for="student${student.id}_specsDone">Done</label>
                                     </l:data-group>
                                     <l:data-group title="Visit form">
-                                        <input type="checkbox" class="rounded-sm" id="student${student.id}_visitFormDone" name="student${student.id}_visitFormDone" ${student.documentsByIdDocuments.visitFormDone && "checked"}/>
+                                        <input type="checkbox" class="accent-indigo-600 rounded-sm"
+                                               id="student${student.id}_visitFormDone"
+                                               name="student${student.id}_visitFormDone" ${student.documentsByIdDocuments.visitFormDone? "checked" : ""}/>
                                         <label for="student${student.id}_visitFormDone">Done</label>
                                     </l:data-group>
                                     <l:data-group title="Company feeling">
-                                        <input type="checkbox" class="rounded-sm" id="student${student.id}_companyEvalFormDone" name="student${student.id}_companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone && "checked"}/>
+                                        <input type="checkbox" class="accent-indigo-600 rounded-sm"
+                                               id="student${student.id}_companyEvalFormDone"
+                                               name="student${student.id}_companyEvalFormDone" ${student.documentsByIdDocuments.companyEvalFormDone? "checked" : ""}/>
                                         <label for="student${student.id}_companyEvalFormDone">Done</label>
                                     </l:data-group>
                                     <l:data-group title="Web form">
-                                        <input type="checkbox" class="rounded-sm" id="student${student.id}_webPollDone" name=student${student.id}_webPollDone" ${student.documentsByIdDocuments.webPollDone && "checked"}/>
+                                        <input type="checkbox" class="accent-indigo-600 rounded-sm" id="student${student.id}_webPollDone"
+                                               name=student${student.id}_webPollDone" ${student.documentsByIdDocuments.webPollDone? "checked" : ""}/>
                                         <label for="student${student.id}_webPollDone">Done</label>
                                     </l:data-group>
                                     <l:data-group title="Final report">
-                                        <input type="checkbox" class="rounded-sm" id="student${student.id}_reportDone" name="student${student.id}_reportDone" ${student.documentsByIdDocuments.reportDone && "checked"}/>
+                                        <input type="checkbox" class="accent-indigo-600 rounded-sm" id="student${student.id}_reportDone"
+                                               name="student${student.id}_reportDone" ${student.documentsByIdDocuments.reportDone? "checked" : ""}/>
                                         <label for="student${student.id}_reportDone">Done</label>
                                     </l:data-group>
                                 </dl>

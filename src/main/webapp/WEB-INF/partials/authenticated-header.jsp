@@ -2,12 +2,12 @@
 <!-- source: https://tailwindui.com/components/application-ui/navigation/navbars -->
 
 <nav class="bg-gray-800">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto mb-8 max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
             <div class="flex flex-1 items-stretch justify-start">
                 <div class="flex flex-shrink-0 items-center">
                     <h2 class="text-white text-center text-3xl font-bold tracking-tight">
-                        GIFT
+                        <a href="my-dashboard">GIFT</a>
                     </h2>
                 </div>
             </div>

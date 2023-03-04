@@ -749,6 +749,10 @@ select {
   margin-bottom: 1.5rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .ml-6 {
   margin-left: 1.5rem;
 }
@@ -779,10 +783,6 @@ select {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-\[1\.25rem\] {
-  margin-top: 1.25rem;
 }
 
 .mt-\[1\.1rem\] {
@@ -881,10 +881,6 @@ select {
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .-space-y-px > :not([hidden]) ~ :not([hidden]) {
@@ -1150,6 +1146,10 @@ select {
 .placeholder-gray-500::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(107 114 128 / var(--tw-placeholder-opacity));
+}
+
+.accent-indigo-600 {
+  accent-color: #4f46e5;
 }
 
 .shadow {

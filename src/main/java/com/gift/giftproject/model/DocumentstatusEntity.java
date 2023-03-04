@@ -17,19 +17,19 @@ public class DocumentstatusEntity {
     private int idDocumentstatus;
     @Basic
     @Column(name = "is_specs_done", nullable = false)
-    private boolean isSpecsDone;
+    private Boolean isSpecsDone;
     @Basic
     @Column(name = "is_visit_form_done", nullable = false)
-    private boolean isVisitFormDone;
+    private Boolean isVisitFormDone;
     @Basic
     @Column(name = "is_company_eval_form_done", nullable = false)
-    private boolean isCompanyEvalFormDone;
+    private Boolean isCompanyEvalFormDone;
     @Basic
     @Column(name = "is_web_poll_done", nullable = false)
-    private boolean isWebPollDone;
+    private Boolean isWebPollDone;
     @Basic
     @Column(name = "is_report_done", nullable = false)
-    private boolean isReportDone;
+    private Boolean isReportDone;
 
     public int getIdDocumentstatus() {
         return idDocumentstatus;

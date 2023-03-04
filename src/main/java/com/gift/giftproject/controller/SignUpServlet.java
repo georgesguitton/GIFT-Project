@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PAGE;
+import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PATH;
 import static com.gift.giftproject.RouteViewConstants.SIGN_UP_PAGE;
 
 @WebServlet(name = "signupServlet", value = "/signup")
@@ -35,6 +35,6 @@ public class SignUpServlet extends HttpServlet {
                 request.getParameter("password")
         ));
 
-        request.getServletContext().getRequestDispatcher(AUTHENTICATED_HOME_PAGE).forward(request, response);
+        response.sendRedirect(request.getContextPath() + AUTHENTICATED_HOME_PATH);
     }
 }
