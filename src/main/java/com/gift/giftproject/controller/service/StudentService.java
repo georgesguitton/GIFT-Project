@@ -51,13 +51,12 @@ public class StudentService {
     public List<StudentEntity> getTutorStudents(TutorEntity tutor) {
         final var entityManager = entityManagerFactory.createEntityManager();
 
-        final var query = entityManager.createNamedQuery("findStudentsOfTutorId", StudentEntity.class);
-        query.setParameter("idTutor", tutor.getIdTutor());
-
-        return query.getResultList();
+        return entityManager.createNamedQuery("findStudentsOfTutorId", StudentEntity.class)
+                .setParameter("idTutor", tutor.getIdTutor())
+                .getResultList();
     }
 
-    public void deleteStudentId(TutorEntity tutor, int studentId) {
+    public void deleteStudentById(TutorEntity tutor, int studentId) {
         final var entityManager = entityManagerFactory.createEntityManager();
 
         try {
@@ -70,5 +69,14 @@ public class StudentService {
         } finally {
             entityManager.close();
         }
+    }
+
+    public StudentEntity getStudentById(TutorEntity tutor, int studentId) {
+        final var entityManager = entityManagerFactory.createEntityManager();
+
+        return entityManager.createNamedQuery("getStudentOfTutorById", StudentEntity.class)
+                .setParameter("idStudent", studentId)
+                .setParameter("idTutor", tutor.getIdTutor())
+                .getSingleResult();
     }
 }

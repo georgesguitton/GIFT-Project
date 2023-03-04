@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "student", schema = "public")
 @NamedQueries({
         @NamedQuery(name = "findStudentsOfTutorId", query = "SELECT s FROM StudentEntity s WHERE s.tutorByIdTutor.idTutor = :idTutor"),
-        @NamedQuery(name = "deleteStudentOfTutorById", query = "DELETE FROM StudentEntity s WHERE s.id = :idStudent AND s.tutorByIdTutor.idTutor = :idTutor")
+        @NamedQuery(name = "deleteStudentOfTutorById", query = "DELETE FROM StudentEntity s WHERE s.id = :idStudent AND s.tutorByIdTutor.idTutor = :idTutor"),
+        @NamedQuery(name = "getStudentOfTutorById", query = "SELECT s FROM StudentEntity s WHERE s.id = :idStudent AND s.tutorByIdTutor.idTutor = :idTutor")
 })
 @NoArgsConstructor
 @AllArgsConstructor

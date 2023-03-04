@@ -13,11 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PAGE;
+import static com.gift.giftproject.RouteViewConstants.SHOW_STUDENT_PAGE;
 
-@WebServlet(name = "destroyStudentServlet", value = "/destroy-student")
+@WebServlet(name = "showStudentServlet", value = "/show-student")
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
-public class DestroyStudentServlet extends HttpServlet {
+public class ShowStudentServlet extends HttpServlet {
     @Inject
     private StudentService studentService;
 
@@ -25,15 +25,21 @@ public class DestroyStudentServlet extends HttpServlet {
     private TutorService tutorService;
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final var tutor = tutorService.getTutorByEmail(request.getRemoteUser());
 
-        studentService.deleteStudentById(
+        final var student = studentService.getStudentById(
                 tutor,
                 Integer.parseInt(request.getParameter("studentId"))
         );
 
-        request.getServletContext().getRequestDispatcher(AUTHENTICATED_HOME_PAGE).forward(request, response);
+        request.setAttribute("student", student);
+
+        final var dateFormatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        request.setAttribute("startdate", dateFormatter.format(student.getInternshipByIdInternship().getStartDate()));
+        request.setAttribute("enddate", dateFormatter.format(student.getInternshipByIdInternship().getEndDate()));
+
+
+        request.getServletContext().getRequestDispatcher(SHOW_STUDENT_PAGE).forward(request, response);
     }
 }

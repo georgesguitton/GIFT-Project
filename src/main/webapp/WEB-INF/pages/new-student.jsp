@@ -7,10 +7,10 @@
   <title>GIFT - Add student</title>
 </head>
 <l:genericpage>
-    <jsp:attribute name="header">
-  <jsp:include page="../partials/authenticated-header.jsp">
-      <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
-  </jsp:include>
+  <jsp:attribute name="header">
+    <jsp:include page="../partials/authenticated-header.jsp">
+        <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
+    </jsp:include>
   </jsp:attribute>
 
   <jsp:body>
@@ -45,6 +45,7 @@
                   <jsp:param name="formId" value="lastname"/>
                   <jsp:param name="formName" value="lastname"/>
                   <jsp:param name="formPlaceholder" value="Doe"/>
+                  <jsp:param name="formRequired" value="true"/>
                 </jsp:include>
               </div>
 
@@ -54,6 +55,7 @@
                   <jsp:param name="formId" value="group"/>
                   <jsp:param name="formName" value="group"/>
                   <jsp:param name="formPlaceholder" value="M2"/>
+                  <jsp:param name="formRequired" value="true"/>
                 </jsp:include>
               </div>
             </div>
