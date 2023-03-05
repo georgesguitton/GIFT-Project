@@ -7,7 +7,7 @@
 <header class="mb-4" id="pageheader">
     <jsp:invoke fragment="header"/>
 </header>
-<main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+<main class="mx-auto mb-8 max-w-7xl px-2 sm:px-6 lg:px-8">
     <jsp:doBody/>
 </main>
 <footer id="pagefooter">
