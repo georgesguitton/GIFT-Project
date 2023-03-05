@@ -11,7 +11,7 @@ import jakarta.servlet.annotation.*;
 
 import static com.gift.giftproject.RouteViewConstants.DASHBOARD_PAGE;
 
-@WebServlet(name = "dashboardServlet", value = "/my-dashboard")
+@WebServlet(name = "dashboardServlet", urlPatterns = { "/index.html", "/my-dashboard" })
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
 public class DashboardServlet extends HttpServlet {
     @Inject

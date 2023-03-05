@@ -2,21 +2,19 @@
 <%@ taglib prefix="l" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>GIFT - Student detail</title>
-</head>
 <l:genericpage>
-  <jsp:attribute name="header">
-    <jsp:include page="../partials/authenticated-header.jsp">
-        <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
-    </jsp:include>
-  </jsp:attribute>
+    <jsp:attribute name="title">
+        GIFT - Student
+    </jsp:attribute>
+
+    <jsp:attribute name="header">
+        <jsp:include page="../partials/authenticated-header.jsp">
+            <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
+        </jsp:include>
+    </jsp:attribute>
 
     <jsp:body>
         <%--@elvariable id="student" type="com.gift.giftproject.model.StudentEntity"--%>
-
         <section class="mb-6">
             <h1 class="mt-2 mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Student detail of #${student.id}
@@ -236,4 +234,3 @@
         </form>
     </jsp:body>
 </l:genericpage>
-</html>

@@ -1,12 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="l" tagdir="/WEB-INF/tags" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>GIFT - Add student</title>
-</head>
 <l:genericpage>
+  <jsp:attribute name="title">
+    GIFT - Add student
+  </jsp:attribute>
+
   <jsp:attribute name="header">
     <jsp:include page="../partials/authenticated-header.jsp">
         <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
@@ -181,4 +180,3 @@
     </form>
   </jsp:body>
 </l:genericpage>
-</html>
