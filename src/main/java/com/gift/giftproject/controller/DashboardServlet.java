@@ -33,7 +33,10 @@ public class DashboardServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final var tutor = tutorService.getTutorByEmail(request.getRemoteUser());
-        request.setAttribute("students", studentService.getTutorStudents(tutor));
+        final var searchQuery = request.getParameter("searchQuery");
+
+        request.setAttribute("students", studentService.getTutorStudents(tutor, searchQuery));
+        request.setAttribute("query", searchQuery);
 
         request.getServletContext().getRequestDispatcher(DASHBOARD_PAGE).forward(request, response);
     }

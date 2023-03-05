@@ -9,6 +9,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
+import java.util.Objects;
 
 @Stateless
 public class StudentService {
@@ -49,11 +50,12 @@ public class StudentService {
         }
     }
 
-    public List<StudentEntity> getTutorStudents(TutorEntity tutor) {
+    public List<StudentEntity> getTutorStudents(TutorEntity tutor, String query) {
         final var entityManager = entityManagerFactory.createEntityManager();
 
         return entityManager.createNamedQuery("findStudentsOfTutorId", StudentEntity.class)
                 .setParameter("idTutor", tutor.getIdTutor())
+                .setParameter("query", Objects.isNull(query) ? "" : query.toLowerCase())
                 .getResultList();
     }
 
