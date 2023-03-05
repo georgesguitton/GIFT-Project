@@ -8,7 +8,7 @@
 
   <jsp:attribute name="header">
     <jsp:include page="../partials/authenticated-header.jsp">
-        <jsp:param name="username" value="${pageContext.request.remoteUser}"/>
+        <jsp:param name="username" value="${tutorName}"/>
     </jsp:include>
   </jsp:attribute>
 

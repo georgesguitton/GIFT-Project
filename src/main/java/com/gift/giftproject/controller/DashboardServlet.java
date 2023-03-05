@@ -36,6 +36,7 @@ public class DashboardServlet extends HttpServlet {
         final var searchQuery = request.getParameter("searchQuery");
 
         request.setAttribute("students", studentService.getTutorStudents(tutor, searchQuery));
+        request.setAttribute("tutorName", tutor.getFirstname() + " " + tutor.getLastname());
         request.setAttribute("query", searchQuery);
 
         request.getServletContext().getRequestDispatcher(DASHBOARD_PAGE).forward(request, response);

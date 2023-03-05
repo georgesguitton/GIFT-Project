@@ -29,6 +29,9 @@ public class NewStudentServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        final var tutor = tutorService.getTutorByEmail(request.getRemoteUser());
+        request.setAttribute("tutorName", tutor.getFirstname() + " " + tutor.getLastname());
+
         request.getServletContext().getRequestDispatcher(ADD_STUDENT_PAGE).forward(request, response);
     }
 

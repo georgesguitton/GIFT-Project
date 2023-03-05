@@ -38,6 +38,7 @@ public class EditStudentServlet extends HttpServlet {
         );
 
         request.setAttribute("student", student);
+        request.setAttribute("tutorName", tutor.getFirstname() + " " + tutor.getLastname());
 
         final var dateFormatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
         request.setAttribute("startdate", dateFormatter.format(student.getInternshipByIdInternship().getStartDate()));
