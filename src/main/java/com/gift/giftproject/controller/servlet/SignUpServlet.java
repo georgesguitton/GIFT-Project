@@ -1,4 +1,4 @@
-package com.gift.giftproject.controller;
+package com.gift.giftproject.controller.servlet;
 
 import com.gift.giftproject.controller.command.CreateTutorEntityCommand;
 import com.gift.giftproject.controller.service.SignUpService;

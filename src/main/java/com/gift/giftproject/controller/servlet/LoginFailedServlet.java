@@ -1,4 +1,4 @@
-package com.gift.giftproject.controller;
+package com.gift.giftproject.controller.servlet;
 
 
 import jakarta.servlet.ServletException;

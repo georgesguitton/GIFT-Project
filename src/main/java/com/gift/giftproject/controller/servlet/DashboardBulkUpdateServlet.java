@@ -1,4 +1,4 @@
-package com.gift.giftproject.controller;
+package com.gift.giftproject.controller.servlet;
 
 import com.gift.giftproject.controller.service.TutorService;
 import jakarta.inject.Inject;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PATH;
 
 @WebServlet(name = "dashboardBulkUpdateServlet", value = "/bulk-update")
-public class DashboardBulkUpdate extends HttpServlet {
+public class DashboardBulkUpdateServlet extends HttpServlet {
     @Inject
     TutorService tutorService;
 
