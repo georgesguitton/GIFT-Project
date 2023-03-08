@@ -48,6 +48,8 @@ public class TutorService {
 
                 student.getInternshipByIdInternship().setVisitDone(updateRequest.visitDone());
                 student.getInternshipByIdInternship().setVisitPlanified(updateRequest.visitPlaned());
+
+                System.out.println(student.getDocumentsByIdDocuments().isWebPollDone());
             }
 
             entityManager.getTransaction().commit();

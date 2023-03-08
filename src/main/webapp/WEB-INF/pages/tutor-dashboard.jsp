@@ -175,7 +175,7 @@
                                                     <input type="checkbox"
                                                            class="accent-indigo-600 rounded-sm"
                                                            id="student${student.id}_webPollDone"
-                                                           name=student${student.id}_webPollDone" ${student.documentsByIdDocuments.webPollDone ? "checked" : ""}
+                                                           name="student${student.id}_webPollDone" ${student.documentsByIdDocuments.webPollDone ? "checked" : ""}
                                                            form="bulk-update"/>
                                                     <label for="student${student.id}_webPollDone">Done</label>
                                                 </l:data-group>
