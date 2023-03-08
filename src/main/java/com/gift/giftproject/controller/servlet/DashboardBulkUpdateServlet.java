@@ -3,6 +3,8 @@ package com.gift.giftproject.controller.servlet;
 import com.gift.giftproject.controller.service.TutorService;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.HttpConstraint;
+import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import static com.gift.giftproject.RouteViewConstants.AUTHENTICATED_HOME_PATH;
 
 @WebServlet(name = "dashboardBulkUpdateServlet", value = "/bulk-update")
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = "tutor_role"))
 public class DashboardBulkUpdateServlet extends HttpServlet {
     @Inject
     TutorService tutorService;

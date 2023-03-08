@@ -101,8 +101,7 @@ public class StudentService {
 
             documentStatusService.setDocumentstatusFromUpdateStudentDetailCommand(
                     student.getDocumentsByIdDocuments().getIdDocumentstatus(),
-                    request
-            );
+                    request);
 
             evaluationService.setEvaluationFromUpdateStudentDetailCommand(
                     student.getEvaluationsByIdEvaluations().getIdEvaluations(),
