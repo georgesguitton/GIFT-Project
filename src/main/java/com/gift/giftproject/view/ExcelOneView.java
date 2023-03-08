@@ -89,14 +89,16 @@ public class ExcelOneView {
             addStudentRow(student, rowIndex++);
         }
 
-        final var spreadsheetConditionalFormatting = spreadsheet.getSheetConditionalFormatting();
-        final var booleanFormattingRules = createBooleanConditionalFormattingRules(spreadsheet);
-        spreadsheetConditionalFormatting.addConditionalFormatting(
-                Stream.of("C2:J"+rowIndex, "N2:O"+rowIndex)
-                        .map(CellRangeAddress::valueOf)
-                        .toList().toArray(new CellRangeAddress[0]),
-                booleanFormattingRules
-        );
+        if (rowIndex > 1) {
+            final var spreadsheetConditionalFormatting = spreadsheet.getSheetConditionalFormatting();
+            final var booleanFormattingRules = createBooleanConditionalFormattingRules(spreadsheet);
+            spreadsheetConditionalFormatting.addConditionalFormatting(
+                    Stream.of("C2:J"+rowIndex, "N2:O"+rowIndex)
+                            .map(CellRangeAddress::valueOf)
+                            .toList().toArray(new CellRangeAddress[0]),
+                    booleanFormattingRules
+            );
+        }
 
         return workbook;
     }

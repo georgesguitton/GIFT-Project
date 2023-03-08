@@ -2,20 +2,11 @@ version: "3.9"
 
 services:
   app:
-    image: quay.io/wildfly/wildfly:latest-jdk17
+    image: fripiane/gift-project
     restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    volumes:
-      # Deployment of the GIFT web-app
-      - ./target/GIFT.war:/opt/jboss/wildfly/standalone/deployments/GIFT.war
-
-      # Deployment and set up of Postgresql Datasource
-      # source: https://marco.dev/use-postgresql-with-wildfly
-      - ./docker/postgresql-42.5.4.jar:/opt/jboss/wildfly/modules/org/postgresql/main/postgresql-42.5.4.jar
-      - ./docker/module.xml:/opt/jboss/wildfly/modules/org/postgresql/main/module.xml
-      - ./docker/standalone.xml:/opt/jboss/wildfly/standalone/configuration/standalone.xml
     ports:
       - "80:8080"
     networks:
@@ -34,8 +25,6 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
       - ./pg-script:/docker-entrypoint-initdb.d
-    ports:
-      - "5432:5432"
     networks:
       - backend
 
