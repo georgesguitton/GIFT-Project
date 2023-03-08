@@ -1,5 +1,6 @@
 package com.gift.giftproject;
 
+import jakarta.annotation.security.DeclareRoles;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.security.enterprise.authentication.mechanism.http.FormAuthenticationMechanismDefinition;
 import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue;
@@ -15,6 +16,7 @@ import jakarta.ws.rs.core.Application;
         dataSourceLookup = "java:/GIFTProjectDS",
         callerQuery = "SELECT password FROM tutor WHERE email = ?",
         groupsQuery = "SELECT role from tutor WHERE email = ?")
+@DeclareRoles({ "tutor_role" })
 @ApplicationScoped
 @ApplicationPath("/api")
 public class AppConfig extends Application {
