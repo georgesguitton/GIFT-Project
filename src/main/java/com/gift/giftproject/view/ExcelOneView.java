@@ -1,11 +1,11 @@
 package com.gift.giftproject.view;
 
 import com.gift.giftproject.model.StudentEntity;
+import com.gift.giftproject.utils.excel.CellValueFormatter;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -51,9 +51,7 @@ public class ExcelOneView {
     }
 
     private void addStudentRow(StudentEntity student, int rowIndex) {
-        final var dateFormatStyle = createDateFormatStyle(workbook);
-        final var booleanFormatStyle = createBooleanCellStyle(workbook);
-        final var defaultCellStyle = createDefaultCellStyle(workbook);
+        final var cellValueFormatter = new CellValueFormatter(workbook);
 
         final var row = spreadsheet.createRow(rowIndex);
         final var rowContent = new Object[]{
@@ -79,17 +77,7 @@ public class ExcelOneView {
         int cellIndex = 0;
         for (final var cellContent : rowContent) {
             final var cell = row.createCell(cellIndex++);
-            cell.setCellStyle(defaultCellStyle);
-
-            if (cellContent instanceof Date) {
-                cell.setCellValue((Date) cellContent);
-                cell.setCellStyle(dateFormatStyle);
-            } else if (cellContent instanceof Boolean) {
-                cell.setCellValue((boolean) cellContent ? 1 : 0);
-                cell.setCellStyle(booleanFormatStyle);
-            }
-            else if (cellContent instanceof Double) cell.setCellValue((double) cellContent);
-            else cell.setCellValue((String) cellContent);
+            cellValueFormatter.formatCell(cell, cellContent);
         }
     }
 
