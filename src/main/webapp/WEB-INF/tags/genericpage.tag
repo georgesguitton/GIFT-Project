@@ -16,6 +16,9 @@
 <body class="bg-gray-100">
 <header class="mb-4" id="pageheader">
     <jsp:invoke fragment="header"/>
+    <div class="bg-amber-500 text-center text-xl px-2 sm:px-6 lg:px-8">
+        DEMO SITE: DO NOT PUT SENSITIVE INFORMATION
+    </div>
 </header>
 <main class="mx-auto mb-8 max-w-7xl px-2 sm:px-6 lg:px-8">
     <jsp:doBody/>
