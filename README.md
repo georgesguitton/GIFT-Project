@@ -24,7 +24,9 @@ npm run watch-css # to compile the CSS from JSPs as soon you save them
 - Go to the [GitHub repository](https://github.com/georgesguitton/GIFT-Project).
 - Go to the [presentation video](https://youtu.be/of5CAgBcO_Q).
 - Go to the deployed solution: https://gift-project.azurewebsites.net/
+
 Only the site is working we were not able to start the script to initialize the database (so you can't login etc...).
 We didn't knew much about deployment so we just kind of picked Azure and we regret it since it is a cloud service suited to larger architecture.
 If we could rechoose we probably would choose something simplier like Heroku.
 
+As a result, we hosted the solution elsewhere: [http://83.114.116.143:29002/](http://83.114.116.143:29002/)
