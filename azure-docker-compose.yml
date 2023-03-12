@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  app:
+    image: registrygift.azurecr.io/gift-project
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "80:8080"
+    networks:
+      - default
+      - backend
+    depends_on:
+      - db
+
+  db:
+    image: registrygift.azurecr.io/postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: GIFTProject
+        : ${PG_DATA}
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/data:/var/lib/postgresql/data/giftdata
+      - ${WEBAPP_STORAGE_HOME}/pgscript:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  data:
+    driver: azure_file
+    driver_opts:
+      share_name: sharegiftdatas
+      storage_account_name: giftdatas
+      storage_account_key: XRvzpBqI8+/lEcuUjKv7T/y4oWwcsa4zF273gr+GldcqC198np3cvpr4RO8pITF2ngCVppdKmKr/+AStuYW/hA==
+  pgscript:
+    driver: azure_file
+    driver_opts:
+      share_name: sharegiftscript
+      storage_account_name: giftscript
+      storage_account_key: eyK7X6N7cumXE/RIF+gXZNGtlsoddVOtWYMe4QT/JRlgyN+pYgqKy7izq+7Mof3F7NLPykGG8/jd+AStA6BrtA==
