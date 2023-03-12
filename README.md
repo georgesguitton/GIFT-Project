@@ -30,3 +30,8 @@ We didn't knew much about deployment so we just kind of picked Azure and we regr
 If we could rechoose we probably would choose something simplier like Heroku.
 
 As a result, we hosted the solution elsewhere: [http://83.114.116.143:29002/](http://83.114.116.143:29002/)
+
+## Tutor Test account
+
+Email: jean.un@gmail.com
+Password: StrongPassword
